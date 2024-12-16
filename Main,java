@@ -1,0 +1,68 @@
+class Animal {
+    protected String species;
+    protected int lifespan;
+
+    public Animal(String species, int lifespan) {
+        this.species = species;
+        this.lifespan = lifespan;
+    }
+
+    public void makeSound() {
+        System.out.println(species + " издает звук.");
+    }
+
+    public void displayInfo() {
+        System.out.println("Вид: " + species + ", Средняя продолжительность жизни: " + lifespan + " лет");
+    }
+}
+
+class Elephant extends Animal {
+    private double tuskLength;
+
+    public Elephant(String species, int lifespan, double tuskLength) {
+        super(species, lifespan);
+        this.tuskLength = tuskLength;
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println(species + " трубит.");
+    }
+
+    public void displayTuskLength() {
+        System.out.println("Длина бивней: " + tuskLength + " м");
+    }
+}
+
+class Parrot extends Animal {
+    private String vocabularySize;
+
+    public Parrot(String species, int lifespan, String vocabularySize) {
+        super(species, lifespan);
+        this.vocabularySize = vocabularySize;
+    }
+
+    public void mimicSound() {
+        System.out.println(species + " повторяет слова.");
+    }
+
+    public void displayVocabularySize() {
+        System.out.println("Объем словарного запаса: " + vocabularySize + " слов");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Elephant elephant = new Elephant("Африканский слон", 70, 2.5);
+        Parrot parrot = new Parrot("Попугай Ара", 50, "около 200");
+
+        elephant.displayInfo();
+        elephant.makeSound();
+        elephant.displayTuskLength();
+        System.out.println();
+
+        parrot.displayInfo();
+        parrot.mimicSound();
+        parrot.displayVocabularySize();
+    }
+}
